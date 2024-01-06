@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Directory {
@@ -26,6 +28,22 @@ public class Directory {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String readFromFile(String fileName) {
+        StringBuilder content = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path + "\\" + fileName));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            reader.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content.toString();
     }
 
     public String getPath() {

@@ -1,5 +1,5 @@
 import java.util.List;
-public class Plane implements IVehicle{
+public class Plane implements IRegisterVehicle{
     private String companyName;
     private String boingNumber;
     private String startFrom;

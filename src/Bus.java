@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Bus implements IVehicle{
+public class Bus implements IRegisterVehicle{
     private String companyName;
     private String busNumber;
     private String busType;
@@ -32,4 +32,37 @@ public class Bus implements IVehicle{
         String companyContent = this.busNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "," + this.fare + "," + this.seatCapacity + "," + this.busType + "\n";
         directory.writeToFile(this.companyName + ".txt", companyContent, true);
     }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getBusNumber() {
+        return busNumber;
+    }
+
+    public String getBusType() {
+        return busType;
+    }
+
+    public String getStartFrom() {
+        return startFrom;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public double getFare() {
+        return fare;
+    }
+
+    public int getSeatCapacity() {
+        return seatCapacity;
+    }
+
 }

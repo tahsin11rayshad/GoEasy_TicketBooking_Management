@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+import java.util.List;
+
 public class Customer {
     private String name;
     private String NID;
@@ -8,6 +10,8 @@ public class Customer {
     private String phone;
     private String email;
     private Directory directory;
+    private List<String> customers;
+
 
     public Customer(String name, String NID, String DOB, String address, String phone, String email) {
         this.name = name;
@@ -17,6 +21,10 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.directory = new Directory("Customer");
+    }
+
+    public Customer(List<String> customers) {
+        this.customers = customers;
     }
 
     public String getName() {

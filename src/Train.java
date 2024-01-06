@@ -1,7 +1,7 @@
 import java.util.List;
 
-public class Train implements IVehicle{
-    private int trainNumber;
+public class Train implements IRegisterVehicle{
+    private String trainNumber;
     private String trainName;
     private String startFrom;
     private String destination;
@@ -9,7 +9,7 @@ public class Train implements IVehicle{
     private List<Coach> coaches;
     private Directory directory;
 
-    public Train(int trainNumber, String trainName, String startFrom, String destination, String departureTime, List<Coach> coaches) {
+    public Train(String trainNumber, String trainName, String startFrom, String destination, String departureTime, List<Coach> coaches) {
         this.trainNumber = trainNumber;
         this.trainName = trainName;
         this.startFrom = startFrom;
@@ -36,4 +36,34 @@ public class Train implements IVehicle{
         companyContent.append("\n");
         directory.writeToFile(this.trainNumber + ".txt", companyContent.toString(), true);
     }
+
+    public String getTrainNumber() {
+        return trainNumber;
+    }
+
+    public String getTrainName() {
+        return trainName;
+    }
+
+    public String getStartFrom() {
+        return startFrom;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public List<Coach> getCoaches() {
+        return coaches;
+    }
+
+    public Directory getDirectory() {
+        return directory;
+    }
+
+
 }

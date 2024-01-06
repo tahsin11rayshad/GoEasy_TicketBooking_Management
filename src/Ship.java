@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Ship implements IVehicle{
+public class Ship implements IRegisterVehicle{
     private String companyName;
     private String shipName;
     private int shipNumber;
