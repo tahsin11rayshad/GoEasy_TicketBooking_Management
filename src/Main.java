@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,34 +32,83 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        System.out.println("Please register your bus to continue.");
+
+
+
+//        System.out.println("Please register your bus to continue.");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter your company name: ");
+//        String CompanyName = scanner.nextLine();
+//        System.out.println("Enter your bus number: ");
+//        String BusNumber = scanner.nextLine();
+//        System.out.println("Enter your bus type: ");
+//        String BusType = scanner.nextLine();
+//        System.out.println("Enter your start from: ");
+//        String StartFrom = scanner.nextLine();
+//        System.out.println("Enter your destination: ");
+//        String Destination = scanner.nextLine();
+//        System.out.println("Enter your departure time: ");
+//        String DepartureTime = scanner.nextLine();
+//        System.out.println("Enter your fare: ");
+//        double Fare = scanner.nextDouble();
+//        System.out.println("Enter your seat capacity: ");
+//        int SeatCapacity = scanner.nextInt();
+//
+//
+//        Bus bus = new Bus(CompanyName, BusNumber, BusType, StartFrom, Destination, DepartureTime, Fare, SeatCapacity, directory);
+//        try {
+//            bus.registerVehicle();
+//            System.out.println("Congratulations! "+ CompanyName + ". You have successfully registered your bus!");
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        System.out.println("Please register your train to continue.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your company name: ");
-        String CompanyName = scanner.nextLine();
-        System.out.println("Enter your bus number: ");
-        String BusNumber = scanner.nextLine();
-        System.out.println("Enter your bus type: ");
-        String BusType = scanner.nextLine();
+
+        System.out.println("Enter your train number: ");
+        int TrainNumber = scanner.nextInt();
+        scanner.nextLine();  // Consume newline left-over
+        System.out.println("Enter your train name: ");
+        String TrainName = scanner.nextLine();
         System.out.println("Enter your start from: ");
         String StartFrom = scanner.nextLine();
         System.out.println("Enter your destination: ");
         String Destination = scanner.nextLine();
         System.out.println("Enter your departure time: ");
         String DepartureTime = scanner.nextLine();
-        System.out.println("Enter your fare: ");
-        double Fare = scanner.nextDouble();
-        System.out.println("Enter your seat capacity: ");
-        int SeatCapacity = scanner.nextInt();
 
+        System.out.println("Enter your number of coaches: ");
+        int NumberOfCoaches = scanner.nextInt();
+        scanner.nextLine();  // Consume newline left-over
 
-        Bus bus = new Bus(CompanyName, BusNumber, BusType, StartFrom, Destination, DepartureTime, Fare, SeatCapacity, directory);
+        List<Coach> coaches = new ArrayList<>();
+        for (int i = 0; i < NumberOfCoaches; i++) {
+            System.out.println("Enter your coach type: ");
+            String CoachType = scanner.nextLine();
+            System.out.println("Enter your coach seat capacity: ");
+            int CoachSeatCapacity = scanner.nextInt();
+            scanner.nextLine();  // Consume newline left-over
+            System.out.println("Enter your coach fare: ");
+            double CoachFare = scanner.nextDouble();
+            scanner.nextLine();  // Consume newline left-over
+            Coach coach = new Coach(CoachType, CoachSeatCapacity, CoachFare);
+            coaches.add(coach);
+        }
+
+        Train train = new Train(TrainNumber, TrainName, StartFrom, Destination, DepartureTime, coaches, directory);
         try {
-            bus.registerVehicle();
-            System.out.println("Congratulations! "+ CompanyName + ". You have successfully registered your bus!");
+            train.registerVehicle();
+            System.out.println("Congratulations! "+ TrainName + ". You have successfully registered your train!");
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
+
 
     }
 }

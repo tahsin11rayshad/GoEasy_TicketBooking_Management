@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.Map;
+
 public class Bus implements IVehicle{
     private String companyName;
     private String busNumber;
@@ -10,7 +12,7 @@ public class Bus implements IVehicle{
     private int seatCapacity;
     private Directory directory;
 
-    public Bus(String companyName, String busNumber, String busType, String startFrom, String destination, String departureTime, double fare, int seatCapacity, Directory directory) {
+    public Bus(String companyName, String busNumber, String busType, String startFrom, String destination, String departureTime, double farewi, int seatCapacity, Directory directory) {
         this.companyName = companyName;
         this.busNumber = busNumber;
         this.busType = busType;
@@ -96,5 +98,6 @@ public class Bus implements IVehicle{
         String companyContent = this.busNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "," + this.fare + "," + this.seatCapacity + "," + this.busType + "\n";
         directory.writeToFile(this.companyName + ".txt", companyContent, true);
     }
+
 
 }
