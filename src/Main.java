@@ -36,6 +36,8 @@ public class Main {
         String CompanyName = scanner.nextLine();
         System.out.println("Enter your bus number: ");
         String BusNumber = scanner.nextLine();
+        System.out.println("Enter your bus type: ");
+        String BusType = scanner.nextLine();
         System.out.println("Enter your start from: ");
         String StartFrom = scanner.nextLine();
         System.out.println("Enter your destination: ");
@@ -46,10 +48,9 @@ public class Main {
         double Fare = scanner.nextDouble();
         System.out.println("Enter your seat capacity: ");
         int SeatCapacity = scanner.nextInt();
-        System.out.println("Enter your bus type: ");
-        String BusType = scanner.nextLine();
 
-        Bus bus = new Bus(CompanyName, BusNumber, StartFrom, Destination, DepartureTime, Fare, SeatCapacity, BusType, directory);
+
+        Bus bus = new Bus(CompanyName, BusNumber, BusType, StartFrom, Destination, DepartureTime, Fare, SeatCapacity, directory);
         try {
             bus.registerVehicle();
             System.out.println("Congratulations! "+ CompanyName + ". You have successfully registered your bus!");

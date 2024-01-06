@@ -1,73 +1,100 @@
+import java.io.IOException;
 public class Bus implements IVehicle{
-    private String CompanyName;
-    private String BusNumber;
-    private String StartFrom;
-    private String Destination;
-    private String DepartureTime;
-    private double Fare;
-    private int SeatCapacity;
-    private String BusType;
+    private String companyName;
+    private String busNumber;
+    private String busType;
+    private String startFrom;
+    private String destination;
+    private String departureTime;
+    private double fare;
+    private int seatCapacity;
     private Directory directory;
 
-    public Bus(String CompanyName, String BusNumber, String StartFrom, String Destination, String DepartureTime, double Fare, int SeatCapacity, String BusType, Directory directory) {
-        this.CompanyName = CompanyName;
-        this.BusNumber = BusNumber;
-        this.StartFrom = StartFrom;
-        this.Destination = Destination;
-        this.DepartureTime = DepartureTime;
-        this.Fare = Fare;
-        this.SeatCapacity = SeatCapacity;
-        this.BusType = BusType;
+    public Bus(String companyName, String busNumber, String busType, String startFrom, String destination, String departureTime, double fare, int seatCapacity, Directory directory) {
+        this.companyName = companyName;
+        this.busNumber = busNumber;
+        this.busType = busType;
+        this.startFrom = startFrom;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.fare = fare;
+        this.seatCapacity = seatCapacity;
         this.directory = directory;
     }
 
     public String getCompanyName() {
-        return CompanyName;
+        return companyName;
     }
 
     public String getBusNumber() {
-        return BusNumber;
-    }
-
-    public String getStartFrom() {
-        return StartFrom;
-    }
-
-    public String getDestination() {
-        return Destination;
-    }
-
-    public String getDepartureTime() {
-        return DepartureTime;
-    }
-
-    public double getFare() {
-        return Fare;
-    }
-
-    public int getSeatCapacity() {
-        return SeatCapacity;
+        return busNumber;
     }
 
     public String getBusType() {
-        return BusType;
+        return busType;
     }
-    
+
+    public String getStartFrom() {
+        return startFrom;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public double getFare() {
+        return fare;
+    }
+
+    public int getSeatCapacity() {
+        return seatCapacity;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setBusNumber(String busNumber) {
+        this.busNumber = busNumber;
+    }
+
+    public void setBusType(String busType) {
+        this.busType = busType;
+    }
+
+    public void setStartFrom(String startFrom) {
+        this.startFrom = startFrom;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public void setFare(double fare) {
+        this.fare = fare;
+    }
+
+    public void setSeatCapacity(int seatCapacity) {
+        this.seatCapacity = seatCapacity;
+    }
+
+
     public void registerVehicle() {
         directory.createDirectory();
 
-        // Prepare bus details
-        String busDetails = String.join(",", CompanyName, BusNumber, StartFrom, Destination, DepartureTime, String.valueOf(Fare), String.valueOf(SeatCapacity), BusType);
+        String allBusesContent = this.busNumber + "," + this.companyName + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "," + this.fare + "," + this.seatCapacity + "," + this.busType + "\n";
+        directory.writeToFile("allbuses.txt", allBusesContent, true);
 
-        // Write to a customer-specific file
-        directory.writeToFile(CompanyName + ".txt", busDetails, false);
-
-        // Append to the all customers file
-        directory.writeToFile("allcustomers.txt", busDetails + "\n", true);
-
-        System.out.println("Bus registered successfully!");
+        String companyContent = this.busNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "," + this.fare + "," + this.seatCapacity + "," + this.busType + "\n";
+        directory.writeToFile(this.companyName + ".txt", companyContent, true);
     }
-
-
 
 }
