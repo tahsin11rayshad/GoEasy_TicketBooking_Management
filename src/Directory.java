@@ -2,17 +2,18 @@ import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-public class Directory {
-    private final String path;
 
-    public Directory() {
-        this.path = "C:\\GoEasy";
+public class Directory {
+    private String path;
+
+    public Directory(String subdirectory) {
+        this.path = "C:\\GoEasy\\" + subdirectory;
     }
 
     public void createDirectory(){
         File directory = new File(path);
         if (!directory.exists()) {
-            directory.mkdir();
+            directory.mkdirs();
         }
     }
 

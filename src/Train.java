@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.List;
 
 public class Train implements IVehicle{
@@ -10,14 +9,14 @@ public class Train implements IVehicle{
     private List<Coach> coaches;
     private Directory directory;
 
-    public Train(int trainNumber, String trainName, String startFrom, String destination, String departureTime, List<Coach> coaches, Directory directory) {
+    public Train(int trainNumber, String trainName, String startFrom, String destination, String departureTime, List<Coach> coaches) {
         this.trainNumber = trainNumber;
         this.trainName = trainName;
         this.startFrom = startFrom;
         this.destination = destination;
         this.departureTime = departureTime;
         this.coaches = coaches;
-        this.directory = directory;
+        this.directory = new Directory("Train");
     }
 
     public void registerVehicle() {
@@ -37,5 +36,4 @@ public class Train implements IVehicle{
         companyContent.append("\n");
         directory.writeToFile(this.trainNumber + ".txt", companyContent.toString(), true);
     }
-
 }

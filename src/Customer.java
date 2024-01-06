@@ -9,14 +9,14 @@ public class Customer {
     private String email;
     private Directory directory;
 
-    public Customer(String name, String NID, String DOB, String address, String phone, String email, Directory directory) {
+    public Customer(String name, String NID, String DOB, String address, String phone, String email) {
         this.name = name;
         this.NID = NID;
         this.DOB = DOB;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.directory = directory;
+        this.directory = new Directory("Customer");
     }
 
     public String getName() {

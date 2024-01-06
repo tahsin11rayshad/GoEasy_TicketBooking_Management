@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 
 public class Bus implements IVehicle{
     private String companyName;
@@ -12,7 +11,7 @@ public class Bus implements IVehicle{
     private int seatCapacity;
     private Directory directory;
 
-    public Bus(String companyName, String busNumber, String busType, String startFrom, String destination, String departureTime, double farewi, int seatCapacity, Directory directory) {
+    public Bus(String companyName, String busNumber, String busType, String startFrom, String destination, String departureTime, double fare, int seatCapacity) {
         this.companyName = companyName;
         this.busNumber = busNumber;
         this.busType = busType;
@@ -21,73 +20,8 @@ public class Bus implements IVehicle{
         this.departureTime = departureTime;
         this.fare = fare;
         this.seatCapacity = seatCapacity;
-        this.directory = directory;
+        this.directory = new Directory("Bus");
     }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public String getBusNumber() {
-        return busNumber;
-    }
-
-    public String getBusType() {
-        return busType;
-    }
-
-    public String getStartFrom() {
-        return startFrom;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public double getFare() {
-        return fare;
-    }
-
-    public int getSeatCapacity() {
-        return seatCapacity;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public void setBusNumber(String busNumber) {
-        this.busNumber = busNumber;
-    }
-
-    public void setBusType(String busType) {
-        this.busType = busType;
-    }
-
-    public void setStartFrom(String startFrom) {
-        this.startFrom = startFrom;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public void setFare(double fare) {
-        this.fare = fare;
-    }
-
-    public void setSeatCapacity(int seatCapacity) {
-        this.seatCapacity = seatCapacity;
-    }
-
 
     public void registerVehicle() {
         directory.createDirectory();
@@ -98,6 +32,4 @@ public class Bus implements IVehicle{
         String companyContent = this.busNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "," + this.fare + "," + this.seatCapacity + "," + this.busType + "\n";
         directory.writeToFile(this.companyName + ".txt", companyContent, true);
     }
-
-
 }
