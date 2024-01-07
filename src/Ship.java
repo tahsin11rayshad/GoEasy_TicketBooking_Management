@@ -24,18 +24,47 @@ public class Ship implements IRegisterVehicle{
     public void registerVehicle() {
         directory.createDirectory();
 
-        StringBuilder allShipsContent = new StringBuilder(this.companyName + "," + this.shipName + "," + this.shipNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "\n");
+        StringBuilder allShipsContent = new StringBuilder(this.companyName + "," + this.shipName + "," + this.shipNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + ",");
         for (Coach coach : coaches) {
             allShipsContent.append(coach.getCoachType()).append(":").append(coach.getSeatCapacity()).append(":").append(coach.getFare()).append(",");
         }
         allShipsContent.append("\n");
         directory.writeToFile("allships.txt", allShipsContent.toString(), true);
 
-        StringBuilder companyContent = new StringBuilder(this.shipName + "," + this.shipNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "\n");
+        StringBuilder companyContent = new StringBuilder(this.shipName + "," + this.shipNumber + "," + this.startFrom + "," + this.destination + "," + this.departureTime + ",");
         for (Coach coach : coaches) {
             companyContent.append(coach.getCoachType()).append(":").append(coach.getSeatCapacity()).append(":").append(coach.getFare()).append(",");
         }
         companyContent.append("\n");
         directory.writeToFile(this.companyName + ".txt", companyContent.toString(), true);
     }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getShipName() {
+        return shipName;
+    }
+
+    public int getShipNumber() {
+        return shipNumber;
+    }
+
+    public String getStartFrom() {
+        return startFrom;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public List<Coach> getCoaches() {
+        return coaches;
+    }
+
 }
