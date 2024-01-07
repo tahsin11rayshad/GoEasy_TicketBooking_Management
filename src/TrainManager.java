@@ -25,9 +25,9 @@ public class TrainManager {
             List<Coach> coaches = new ArrayList<>();
             for (int i = 5; i < values.length; i++) {
                 String[] coachValues = values[i].split(":");
-                String coachType = coachValues[i];
-                int seatCapacity = Integer.parseInt(coachValues[i+1]);
-                double fare = Double.parseDouble(coachValues[i+2]);
+                String coachType = coachValues[0];
+                int seatCapacity = Integer.parseInt(coachValues[1]);
+                double fare = Double.parseDouble(coachValues[2]);
                 coaches.add(new Coach(coachType, seatCapacity, fare));
             }
             trains.add(new Train(trainNumber, trainName, startFrom, destination, departureTime, coaches));

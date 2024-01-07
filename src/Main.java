@@ -55,8 +55,7 @@ public class Main {
 //        System.out.println("Please register your trains first");
 //
 //        System.out.println("Enter your train number");
-//        int trainNumber = scanner.nextInt();
-//        scanner.nextLine();
+//        String trainNumber = scanner.nextLine();
 //        System.out.println("Enter your train name");
 //        String trainName = scanner.nextLine();
 //        System.out.println("Enter your start from");
@@ -84,22 +83,24 @@ public class Main {
 //
 //        Train train = new Train(trainNumber, trainName, startFrom, destination, departureTime, coaches);
 //        train.registerVehicle();
-
-        System.out.println("Search for trains by startFrom and destination");
-        System.out.println("Enter your startFrom");
-        String startFrom = scanner.nextLine();
-        System.out.println("Enter your destination");
-        String destination = scanner.nextLine();
-
-        TrainManager trainManager = new TrainManager("Train", "alltrains.txt");
-        List<Train> trains = trainManager.searchTrains(startFrom, destination);
-
-        System.out.println("Here are the trains available for your search\n\n");
-
-        for (Train train : trains) {
-            System.out.println(train.getTrainNumber() + "\t\t" + train.getTrainName() + "\t\t" + train.getStartFrom() + "\t\t" + train.getDestination() + "\t\t" + train.getDepartureTime());
-        }
-
+//
+//        System.out.println("Search for trains by startFrom and destination");
+//        System.out.println("Enter your startFrom");
+//        String startFrom = scanner.nextLine();
+//        System.out.println("Enter your destination");
+//        String destination = scanner.nextLine();
+//
+//        TrainManager trainManager = new TrainManager("Train", "alltrains.txt");
+//        List<Train> trains = trainManager.searchTrains(startFrom, destination);
+//
+//        System.out.println("Here are the trains available for your search\n\n");
+//
+//        for (Train train : trains) {
+//            System.out.println(train.getTrainNumber() + "\t\t" + train.getTrainName() + "\t\t" + train.getStartFrom() + "\t\t" + train.getDestination() + "\t\t" + train.getDepartureTime());
+//            for (Coach coach : train.getCoaches()) {
+//                System.out.println(coach.getCoachType() + "\t\t" + coach.getSeatCapacity() + "\t\t" + coach.getFare());
+//            }
+//        }
 
 
     }

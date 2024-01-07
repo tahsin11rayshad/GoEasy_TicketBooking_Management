@@ -22,14 +22,14 @@ public class Train implements IRegisterVehicle{
     public void registerVehicle() {
         directory.createDirectory();
 
-        StringBuilder allTrainsContent = new StringBuilder(this.trainNumber + "," + this.trainName + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "\n");
+        StringBuilder allTrainsContent = new StringBuilder(this.trainNumber + "," + this.trainName + "," + this.startFrom + "," + this.destination + "," + this.departureTime + ",");
         for (Coach coach : coaches) {
             allTrainsContent.append(coach.getCoachType()).append(":").append(coach.getSeatCapacity()).append(":").append(coach.getFare()).append(",");
         }
         allTrainsContent.append("\n");
         directory.writeToFile("alltrains.txt", allTrainsContent.toString(), true);
 
-        StringBuilder companyContent = new StringBuilder(this.trainName + "," + this.startFrom + "," + this.destination + "," + this.departureTime + "\n");
+        StringBuilder companyContent = new StringBuilder(this.trainName + "," + this.startFrom + "," + this.destination + "," + this.departureTime + ",");
         for (Coach coach : coaches) {
             companyContent.append(coach.getCoachType()).append(":").append(coach.getSeatCapacity()).append(":").append(coach.getFare()).append(",");
         }
